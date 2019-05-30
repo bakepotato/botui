@@ -43,15 +43,50 @@ BOTUI.button = function(){
 		action: [{text: "button", value: "button"}]
 	})
 	.then(function(res){
-		alert( res.value );
+		BOTUI.text();
 	});
+}
+
+BOTUI.text = function(){
+
+	BOTUI.botui.action.text({
+		delay: 300,
+		action: {
+			placeholder: "Please Input Somthing.."
+		}
+	})
+	.then(function(res){
+		BOTUI.embed();
+	})
+}
+
+BOTUI.embed = function(){
+
+	BOTUI.botui.message.bot({
+		type: "embed",
+		content: "https://www.youtube.com/embed/VwDn_mwOuFw"
+	})
+	.then(function(){
+		BOTUI.url();
+	})
+}
+
+BOTUI.url = function(){
+
+	BOTUI.botui.message.bot({
+
+		delay: 300,
+		content: "[youtubeへのリンク](https://www.youtube.com/watch?v=VwDn_mwOuFw)^"
+	})
+	.then(function(){
+
+	})
 }
 
 // ====================================
 //　初期実行関数
 // ====================================
 BOTUI.init();
-
 
 // ====================================
 // EOF
