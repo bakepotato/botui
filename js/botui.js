@@ -56,6 +56,7 @@ BOTUI.text = function(){
 		}
 	})
 	.then(function(res){
+		alert( res.value );
 		BOTUI.embed();
 	})
 }
